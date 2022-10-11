@@ -1,0 +1,13 @@
+version: '3'
+services:
+  arturo-dev:
+    build: .
+    image: azrdev/graphql-api
+    container_name: arturo-graphql-dev
+    command: python manage.py runserver --setting=settings.develop 0.0.0.0:8080
+    volumes:
+    - .:/sistemaweb
+    ports:
+    - "8102:8080"
+    env_file:
+      - .env
